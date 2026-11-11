@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="640" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6D5DE"/>
+      <stop offset="0.55" stop-color="#E8A8BA"/>
+      <stop offset="1" stop-color="#C45C7A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 310) rotate(90) scale(220 180)">
+      <stop stop-color="#FFF6F8" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFF6F8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="720" height="900" fill="url(#bg)"/>
+  <circle cx="360" cy="310" r="220" fill="url(#glow)"/>
+  <circle cx="360" cy="290" r="118" fill="#FFF8F6" fill-opacity="0.92"/>
+  <ellipse cx="360" cy="560" rx="170" ry="200" fill="#FFF8F6" fill-opacity="0.92"/>
+  <text x="360" y="780" text-anchor="middle" fill="#1C1218" fill-opacity="0.72" font-family="Georgia, serif" font-size="42" font-weight="700">DECEM</text>
+  <text x="360" y="820" text-anchor="middle" fill="#1C1218" fill-opacity="0.5" font-family="Arial, sans-serif" font-size="18">replace with your photo</text>
+</svg>
