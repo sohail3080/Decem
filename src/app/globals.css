@@ -60,9 +60,10 @@ img {
 .page {
   position: relative;
   z-index: 1;
-  width: min(1100px, calc(100% - 2rem));
+  width: min(1100px, 100%);
   margin: 0 auto;
-  padding: 1.4rem 0 4.5rem;
+  padding: 1.4rem max(1rem, env(safe-area-inset-right))
+    calc(4.5rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
 }
 
 .nav {
@@ -166,6 +167,7 @@ img {
   font-size: 0.94rem;
   font-weight: 700;
   cursor: pointer;
+  min-height: 44px;
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -462,6 +464,8 @@ img {
   color: var(--muted);
   font-size: 0.86rem;
   font-weight: 500;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 @keyframes fadeUp {
@@ -525,20 +529,58 @@ img {
   }
 }
 
+@media (max-width: 1024px) {
+  .hero {
+    gap: 2.2rem;
+  }
+
+  .vibe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 860px) {
+  .page {
+    padding-top: 1.1rem;
+  }
+
+  .nav {
+    margin-bottom: 1.6rem;
+    gap: 0.75rem;
+  }
+
   .hero {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.5rem;
     min-height: auto;
+    margin-bottom: 3.5rem;
   }
 
   .hero-media {
     order: -1;
-    width: min(100%, 380px);
+    width: min(100%, 420px);
     margin: 0 auto;
   }
 
+  .hero-copy {
+    text-align: center;
+  }
+
   .hero-lead {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .section {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-head p {
     max-width: none;
   }
 
@@ -548,25 +590,151 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 
-  #now .section-head,
-  #birthday .section-head,
-  #lessons .section-head,
-  .quote {
-    text-align: left;
+  .countdown-note,
+  .vibe-note {
+    max-width: none;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .page {
-    width: min(100% - 1.2rem, 1100px);
+    padding: 1rem max(0.85rem, env(safe-area-inset-right))
+      calc(3.5rem + env(safe-area-inset-bottom))
+      max(0.85rem, env(safe-area-inset-left));
   }
 
-  .vibe-grid,
-  .lessons {
-    grid-template-columns: 1fr;
+  .nav-brand {
+    font-size: 1.45rem;
+  }
+
+  .nav-tag {
+    font-size: 0.8rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
   }
 
   .brand-title {
-    font-size: clamp(3.1rem, 14vw, 4rem);
+    font-size: clamp(2.8rem, 13vw, 3.8rem);
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .hero-media {
+    width: 100%;
+  }
+
+  .hero-frame {
+    border-radius: 1.1rem 1.1rem 1.6rem 1.1rem;
+    max-height: min(68vh, 520px);
+    aspect-ratio: 4 / 5;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .vibe-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .vibe-card {
+    padding: 0.95rem 0.8rem 1rem;
+  }
+
+  .vibe-value {
+    font-size: 1.05rem;
+  }
+
+  .countdown-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .countdown-cell {
+    padding: 1rem 0.5rem;
+  }
+
+  .countdown-value {
+    font-size: clamp(1.45rem, 8vw, 1.9rem);
+  }
+
+  .lessons {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .lesson {
+    padding: 1.1rem 1rem;
+  }
+
+  .lesson-meta {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.35rem 0.75rem;
+  }
+
+  .lesson h3 {
+    font-size: 1.2rem;
+  }
+
+  .quote {
+    padding: 1.35rem 0 1.35rem 1rem;
+  }
+
+  .quote blockquote {
+    font-size: clamp(1.25rem, 6.2vw, 1.55rem);
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .vibe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown-label {
+    letter-spacing: 0.05em;
+    font-size: 0.65rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+
+  .hero-media:hover .hero-frame img {
+    transform: scale(1.02);
+  }
+
+  .vibe-card:hover,
+  .lesson:hover {
+    transform: none;
   }
 }

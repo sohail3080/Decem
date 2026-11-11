@@ -68,11 +68,7 @@ export default function Home() {
             Meet <span>Decem</span>
           </h1>
           <p className="hero-lead anim-item" style={{ animationDelay: "0.28s" }}>
-            Born on <span className="date-highlight">December 1st</span>. A
-            December baby living for himself: solo travel, nature over noisy
-            scenes, chai 🍵, early mornings, the gym, and playing guitar to
-            sing for his niece, whom he loves dearly, for the adventure, not
-            because company isn&apos;t welcome.
+            Born on <span className="date-highlight">December 1st</span>.
           </p>
           <div className="cta-row anim-item" style={{ animationDelay: "0.4s" }}>
             <a className="btn btn-primary" href="#birthday">
@@ -92,6 +88,7 @@ export default function Home() {
               alt="Decem"
               width={720}
               height={900}
+              sizes="(max-width: 640px) 92vw, (max-width: 860px) 380px, 44vw"
               priority
             />
           </div>
