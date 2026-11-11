@@ -72,7 +72,7 @@ img {
   margin-bottom: 2.2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--line);
-  animation: fadeUp 0.7s ease both;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .nav-brand {
@@ -109,7 +109,11 @@ img {
 }
 
 .hero-copy {
-  animation: fadeUp 0.8s ease 0.08s both;
+  position: relative;
+}
+
+.anim-item {
+  animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .eyebrow {
@@ -191,7 +195,6 @@ img {
 
 .hero-media {
   position: relative;
-  animation: fadeUp 0.9s ease 0.16s both;
 }
 
 .hero-frame {
@@ -241,7 +244,24 @@ img {
 
 .section {
   margin-bottom: 4.75rem;
-  animation: fadeUp 0.8s ease both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.is-visible .vibe-card {
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .section-head {
@@ -290,6 +310,8 @@ img {
   font-size: clamp(1.7rem, 4vw, 2.4rem);
   line-height: 1;
   color: var(--ink);
+  display: inline-block;
+  animation: tickPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .countdown-label {
@@ -408,7 +430,12 @@ img {
   max-width: 46rem;
   margin: 0;
   padding: 1.75rem 0 1.75rem 1.35rem;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid transparent;
+}
+
+.reveal.is-visible .quote,
+.quote.is-visible {
+  animation: quoteLine 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .quote blockquote {
@@ -455,6 +482,46 @@ img {
   }
   50% {
     transform: translateY(-7px);
+  }
+}
+
+@keyframes tickPop {
+  from {
+    opacity: 0.35;
+    transform: translateY(6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes quoteLine {
+  from {
+    border-left-color: transparent;
+  }
+  to {
+    border-left-color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-item,
+  .reveal,
+  .reveal.is-visible .vibe-card,
+  .countdown-value,
+  .reveal.is-visible .quote,
+  .hero-frame img,
+  .hero-glow {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 

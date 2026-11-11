@@ -73,7 +73,9 @@ export default function BirthdayTimer() {
       <div className="countdown-grid" aria-live="polite">
         {units.map(({ key, label }) => (
           <div className="countdown-cell" key={key}>
-            <div className="countdown-value">{timeLeft[key]}</div>
+            <div className="countdown-value" key={`${key}-${timeLeft[key]}`}>
+              {timeLeft[key]}
+            </div>
             <div className="countdown-label">{label}</div>
           </div>
         ))}
