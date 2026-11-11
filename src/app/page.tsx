@@ -1,29 +1,30 @@
 import Image from "next/image";
+import BirthdayTimer from "@/components/BirthdayTimer";
 
 const vibes = [
   {
     label: "Current fuel",
-    value: "Warm coffee",
+    value: "Chai 🍵",
   },
   {
     label: "Peak hours",
-    value: "2 a.m. ideas",
+    value: "Early mornings",
   },
   {
     label: "Main quest",
-    value: "Solo travel",
+    value: "Nature time",
   },
   {
-    label: "Side quest",
-    value: "Extra cheese pizza",
+    label: "Soft skill",
+    value: "Guitar & songs",
   },
 ];
 
 const lessons = [
   {
-    title: "Coffee First, Always",
-    year: "Daily",
-    body: "Most problems feel smaller after a warm cup. The ones that don’t? Add another cup and a good playlist.",
+    title: "Nature Feels Right",
+    year: "Always",
+    body: "Cafe and pub culture just aren’t my thing. I prefer nature and whatever feels natural: open air, quiet trails, simple days. No judgment on anyone else’s vibe. It’s only my preference.",
   },
   {
     title: "Solo Trips Hit Different",
@@ -31,14 +32,19 @@ const lessons = [
     body: "I love traveling solo and doing things myself: the freedom, the detours, the little wins. Independence is fun and adventurous, not a statement against company. Friends are great; going my own way is just another kind of joy.",
   },
   {
-    title: "Say Yes to Random Plans",
-    year: "2023",
-    body: "The best stories usually start with “I wasn’t even supposed to go.” Spontaneity is undefeated, whether it’s a solo day out or a last-minute hang.",
+    title: "Songs for My Niece",
+    year: "Dearest",
+    body: "I can play guitar, and I love to play and sing for my niece. She’s dear to me, and those little music moments are some of my favorite ones.",
   },
   {
-    title: "Keep the Chaos Soft",
+    title: "Health Comes First",
     year: "Present",
-    body: "Life doesn’t need a perfect plot. A little mess, a lot of laughter, and people who get the bit. That’s the whole vibe.",
+    body: "I take care of my health. Gym sessions, healthy food, and steady habits keep the energy up for travel and everything else.",
+  },
+  {
+    title: "Happy Being Single",
+    year: "Choice",
+    body: "I like to stay single and keep life light on responsibilities. The independence feels good, and I’m genuinely happy with it.",
   },
 ];
 
@@ -47,7 +53,9 @@ export default function Home() {
     <main className="page">
       <nav className="nav">
         <div className="nav-brand">Decem</div>
-        <div className="nav-tag">Sohail · Dec 1</div>
+        <div className="nav-tag">
+          Sohail · <span className="date-highlight">Dec 1</span>
+        </div>
       </nav>
 
       <section className="hero">
@@ -57,14 +65,15 @@ export default function Home() {
             Meet <span>Decem</span>
           </h1>
           <p className="hero-lead">
-            Born on December 1st, naturally cheerful! A December baby who loves
-            solo travel, doing things his own way, warm coffee, and impulsive
-            2 a.m. decisions, for the adventure, not because company isn&apos;t
-            welcome.
+            Born on <span className="date-highlight">December 1st</span>. A
+            December baby who loves solo travel, nature over noisy scenes,
+            chai 🍵, early mornings, the gym, and playing guitar to sing for
+            his niece, whom he loves dearly, for the adventure, not because
+            company isn&apos;t welcome.
           </p>
           <div className="cta-row">
-            <a className="btn btn-primary" href="#now">
-              What’s cooking
+            <a className="btn btn-primary" href="#birthday">
+              Meet Dec 1
             </a>
             <a className="btn btn-ghost" href="#lessons">
               Fun highlights
@@ -100,14 +109,25 @@ export default function Home() {
           ))}
         </div>
         <p className="vibe-note">
-          Thriving, slightly chaotic, and powered by caffeine and good vibes.
+          Thriving, lightly adventurous, and powered by chai and good vibes.
         </p>
+      </section>
+
+      <section className="section" id="birthday">
+        <div className="section-head">
+          <h2>Until December 1st</h2>
+          <p>
+            Every year starts with that date for me. Here&apos;s how close the
+            next celebration is.
+          </p>
+        </div>
+        <BirthdayTimer />
       </section>
 
       <section className="section" id="lessons">
         <div className="section-head">
           <h2>Fun Highlights</h2>
-          <p>Soft chaos, good snacks, and lessons that actually feel fun.</p>
+          <p>Nature, guitar songs, and lessons that actually feel fun.</p>
         </div>
         <div className="lessons">
           {lessons.map((item) => (
@@ -124,15 +144,14 @@ export default function Home() {
 
       <section className="section quote">
         <blockquote>
-          &ldquo;I like going solo because it&apos;s fun and adventurous, not
-          because I don&apos;t like people. Independence just makes the map feel
-          bigger.&rdquo;
+          &ldquo;The best audience I have is my niece. A guitar, a few songs,
+          and her smile is more than enough.&rdquo;
         </blockquote>
-        <cite>Decem, Solo Traveler &amp; Good-Vibes Collector</cite>
+        <cite>Decem, for the niece he loves dearly</cite>
       </section>
 
       <footer className="footer">
-        Made with ☕️ for Decem&apos;s Little Adventures · Sohail ·{" "}
+        Made with chai 🍵 for Decem&apos;s Little Adventures · Sohail ·{" "}
         {new Date().getFullYear()}
       </footer>
     </main>

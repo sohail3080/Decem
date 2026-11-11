@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Instrument_Serif({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "600", "700", "800"],
+  weight: "400",
 });
 
-const body = Figtree({
+const body = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title: "Decem's Little Adventures",
   description:
-    "Born on December 1st. Decem's story of solo travel, independence for the adventure, coffee, and soft chaos.",
+    "Born on December 1st. Decem's story of solo travel, independence for the adventure, chai, and soft chaos.",
 };
 
 export default function RootLayout({
